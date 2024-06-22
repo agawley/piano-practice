@@ -1,19 +1,21 @@
-export async function get(date) {
+import { getTodaysDate } from "../lib/dates.mjs";
+
+export async function get() {
+  const today = getTodaysDate();
   const response = await fetch(
-    `https://hphrq29eda.execute-api.us-east-1.amazonaws.com/practice/${date}`
+    `https://hphrq29eda.execute-api.us-east-1.amazonaws.com/practice/${today}`
   );
   const data = await response.json();
   return {
     json: {
-      practice: data,
+      practice: data.sections ? data : { date: today, sections: {} },
     },
   };
 }
 
-export async function post(practice) {
-  console.log(practice);
-  const data = { date: "abcdef", sections: { hannon: true, scales: true } };
-  /* const response = await fetch(
+export async function post(req) {
+  const { date, ...sections } = req.body;
+  const response = await fetch(
     "https://hphrq29eda.execute-api.us-east-1.amazonaws.com/practice",
     {
       method: "POST",
@@ -21,13 +23,15 @@ export async function post(practice) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(practice),
+      body: JSON.stringify({ date, sections }),
     }
   );
-  const data = await response.json(); */
+  const data = await response.json();
+  console.log("response to post", data);
   return {
     json: {
       practice: data,
     },
+    location: "/practice",
   };
 }

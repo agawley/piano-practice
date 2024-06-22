@@ -7,7 +7,7 @@ export default async function Preflight({ req }) {
 function getPageTitle(path) {
   const titleMap = {
     "/": "Piano practices",
-    "/new": "New practice",
+    "/practice": "New practice",
   };
 
   return titleMap[path];
