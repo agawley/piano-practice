@@ -65,22 +65,13 @@ export default class PracticeForm extends CustomElement {
       </style>
       <form action="/practice" method="post">
         <input type="hidden" name="date" value=${practice?.date} />
-        <label
-          >Chords
-          <input
-            type="checkbox"
-            name="chords"
-            ${practice?.sections?.chords ? "checked" : ""}
-          />
-        </label>
-        <label
-          >Hannon
-          <input
-            type="checkbox"
-            name="hannon"
-            ${practice?.sections?.hannon ? "checked" : ""}
-          />
-        </label>
+        <practice-checkbox label="Scales" name="scales"> </practice-checkbox>
+        <practice-checkbox label="Site Reading" name="siteReading">
+        </practice-checkbox>
+        <practice-checkbox label="Hannon" name="hannon"> </practice-checkbox>
+        <practice-checkbox label="Piece 1" name="piece1"> </practice-checkbox>
+        <practice-checkbox label="Piece 2" name="piece2"> </practice-checkbox>
+        <practice-checkbox label="Chords" name="chords"> </practice-checkbox>
         <button
           type="submit"
           class="
