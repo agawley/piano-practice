@@ -5,8 +5,10 @@ export default class PracticeForm extends CustomElement {
   constructor() {
     super();
     this.form = this.querySelector("form");
-    // JS is enabled so hide the submit button
-    this.querySelector("button").classList.add("hidden");
+    // JS is enabled so disable the submit button
+    const button = this.querySelector("button");
+    button.disabled = true;
+    button.textContent = "Auto saved...";
     this.checkboxChanged = this.checkboxChanged.bind(this);
   }
 
@@ -43,43 +45,61 @@ export default class PracticeForm extends CustomElement {
 
     return html` <style>
         :host {
-          --_accent: var(--accent, royalblue);
-          --_fore: var(--fore, black);
-          --_back: var(--back, white);
+          --_accent: var(--accent, white);
+          --_fore: var(--fore, red);
+          --_back: var(--back, red);
+          width: 100%;
+          font-family: sans-serif;
+        }
+        :host form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
         }
         :host button {
-          color: var(--_back);
-          background-color: var(--_accent, var(--_fore));
+          color: rgb(255, 255, 255);
+          background-color: rgb(25, 118, 210);
           border: 1px solid transparent;
-        }
-        :host button:active {
-          color: var(--_fore);
-          background-color: var(--_accent, var(--_back));
-          border: 1px solid var(--_fore);
+          margin: auto;
+          margin-top: 15px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+            rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+            rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+          border-radius: 4px;
+          font-weight: normal;
         }
         :host button:disabled {
-          color: var(--_accent, var(--_fore));
-          background-color: var(--_fore);
-          border: 1px solid var(--_accent, var(--_back));
+          color: rgba(0, 0, 0, 0.26);
+          background-color: rgba(0, 0, 0, 0.12);
+          border: 1px solid transparent;
+          box-shadow: none;
+          border-radius: 4px;
+          font-weight: normal;
         }
       </style>
+      <h2 class="text4 text-center m0">Log your practice</h2>
       <form action="/practice" method="post">
         <input type="hidden" name="date" value=${practice?.date} />
-        <practice-checkbox label="Scales" name="scales"> </practice-checkbox>
-        <practice-checkbox label="Site Reading" name="siteReading">
-        </practice-checkbox>
-        <practice-checkbox label="Hannon" name="hannon"> </practice-checkbox>
-        <practice-checkbox label="Piece 1" name="piece1"> </practice-checkbox>
-        <practice-checkbox label="Piece 2" name="piece2"> </practice-checkbox>
-        <practice-checkbox label="Chords" name="chords"> </practice-checkbox>
+        <new-practice-checkbox label="Scales" name="scales">
+        </new-practice-checkbox>
+        <new-practice-checkbox label="Site Reading" name="siteReading">
+        </new-practice-checkbox>
+        <new-practice-checkbox label="Hannon" name="hannon">
+        </new-practice-checkbox>
+        <new-practice-checkbox label="Piece 1" name="piece1">
+        </new-practice-checkbox>
+        <new-practice-checkbox label="Piece 2" name="piece2">
+        </new-practice-checkbox>
+        <new-practice-checkbox label="Chords" name="chords">
+        </new-practice-checkbox>
         <button
           type="submit"
           class="
-    whitespace-no-wrap
-    pb-3
-    pi0
-    font-semibold
-    radius0"
+              whitespace-no-wrap
+              pb-3
+              pi0
+              font-semibold
+              radius0"
         >
           Save
         </button>
