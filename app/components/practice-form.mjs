@@ -77,7 +77,6 @@ export default class PracticeForm extends CustomElement {
           font-weight: normal;
         }
       </style>
-      <h2 class="text4 text-center m0">Log your practice</h2>
       <form action="/practice" method="post">
         <input type="hidden" name="date" value=${practice?.date} />
         <new-practice-checkbox label="Scales" name="scales">
