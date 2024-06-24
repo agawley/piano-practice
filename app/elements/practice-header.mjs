@@ -10,6 +10,8 @@ export default function ThisWeek({ html, state }) {
         border: 1px solid #ccc;
         margin-bottom: 15px;
         background-color: #f1f1f1;
+        display: flex;
+        justify-content: center;
       }
 
       /* Style the buttons that are used to open the tab content */
