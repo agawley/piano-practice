@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 import { getTodaysDate } from "../lib/dates.mjs";
 
 export async function get() {
