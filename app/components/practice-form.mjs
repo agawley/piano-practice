@@ -21,7 +21,6 @@ export default class PracticeForm extends CustomElement {
   }
 
   checkboxChanged(evt) {
-    console.log("got a checkbox change", evt);
     let body = JSON.stringify(Object.fromEntries(new FormData(this.form))); // 4
     fetch(this.form.action, {
       // 5
@@ -32,7 +31,7 @@ export default class PracticeForm extends CustomElement {
       },
     })
       .then(() => {
-        console.log("from submit successful");
+        console.log("form submit successful");
       })
       .catch((error) => {
         console.log("got an error", error);
