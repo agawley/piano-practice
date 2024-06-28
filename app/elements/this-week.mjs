@@ -5,7 +5,9 @@ export default function ThisWeek({ html, state }) {
   const { practices } = store;
 
   const thisWeekPractices = practices.filter(
-    (practice) => practice.date >= getWeekStart()
+    (practice) =>
+      practice.date >= getWeekStart() &&
+      Object.keys(practice.sections).length > 0
   );
 
   const result = thisWeekPractices.reduce((acc, practice) => {
