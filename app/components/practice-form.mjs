@@ -67,6 +67,7 @@ export default class PracticeForm extends CustomElement {
             rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
           border-radius: 4px;
           font-weight: normal;
+          width: 200px;
         }
         :host button:disabled {
           color: rgba(0, 0, 0, 0.26);
