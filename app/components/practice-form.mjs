@@ -20,7 +20,7 @@ export default class PracticeForm extends CustomElement {
     this.removeEventListener("change", this.checkboxChanged);
   }
 
-  checkboxChanged(evt) {
+  checkboxChanged() {
     let body = JSON.stringify(Object.fromEntries(new FormData(this.form))); // 4
     fetch(this.form.action, {
       // 5
