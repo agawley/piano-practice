@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-export const URL = "https://hphrq29eda.execute-api.us-east-1.amazonaws.com";
+export const URL = "https://gojncrx4mb.execute-api.eu-west-2.amazonaws.com";
 
 export async function get() {
   const response = await fetch(`${URL}/practices`);
