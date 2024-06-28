@@ -54,6 +54,7 @@ export default class PracticeForm extends CustomElement {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
+          font-size: 1.5em;
         }
         :host button {
           color: rgb(255, 255, 255);
@@ -69,8 +70,8 @@ export default class PracticeForm extends CustomElement {
         }
         :host button:disabled {
           color: rgba(0, 0, 0, 0.26);
-          background-color: rgba(0, 0, 0, 0.12);
-          border: 1px solid transparent;
+          background-color: rgba(0, 0, 0, 0);
+          border: 1px solid rgba(0, 0, 0, 0.1);
           box-shadow: none;
           border-radius: 4px;
           font-weight: normal;

@@ -31,16 +31,18 @@ export default class NewPracticeCheckbox extends CustomElement {
           display: flex;
           justify-content: space-evenly;
           font-family: sans-serif;
+          margin-bottom: 10px;
         }
         :host label {
           min-width: 300px;
           display: flex;
           align-items: center;
           padding: 5px;
-          border: 1px solid #ccc;
+          border-radius: 5px;
         }
         :host label.checked {
-          background-color: green;
+          background-color: #388e3c;
+          color: white;
         }
       </style>
       <label class="p0 block ${practice?.sections?.[name] ? "checked" : ""}">
@@ -48,8 +50,10 @@ export default class NewPracticeCheckbox extends CustomElement {
           type="checkbox"
           name=${name}
           style="margin-right: 10px"
+          class="hidden"
           ${practice?.sections?.[name] ? "checked" : ""}
-        /><span>${label}</span>
+        />
+        <div class="text-center">${label}</div>
       </label>`;
   }
 }

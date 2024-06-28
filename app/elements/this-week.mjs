@@ -20,34 +20,43 @@ export default function ThisWeek({ html, state }) {
     <style>
       :host {
         font-family: sans-serif;
+        font-size: 1.5em;
         width: 100%;
         display: flex;
         justify-content: center;
+        padding-top: 15px;
+      }
+      :host .total {
+        margin-bottom: 30px;
+      }
+      :host .section {
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
     </style>
     <div
-      class="p2 flex flex-col justify-content-around align-content-around"
+      class="flex flex-col justify-content-around align-content-around"
       style="width: 300px"
     >
-      <div class="flex justify-content-between mbe-5 pbe-5 font-bold">
+      <div class="flex justify-content-between font-semibold total">
         <span>Total practices: </span><span>${thisWeekPractices.length}</span>
       </div>
-      <div class="flex justify-content-between pbe-2 mbs-5">
+      <div class="flex justify-content-between section">
         <span>Scales: </span><span>${result.scales || 0}</span>
       </div>
-      <div class="flex justify-content-between pbe-2">
+      <div class="flex justify-content-between section">
         <span>Site reading: </span><span>${result.siteReading || 0}</span>
       </div>
-      <div class="flex justify-content-between pbe-2">
+      <div class="flex justify-content-between section">
         <span>Hannon: </span><span>${result.hannon || 0}</span>
       </div>
-      <div class="flex justify-content-between pbe-2">
+      <div class="flex justify-content-between section">
         <span>Piece 1: </span><span>${result.piece1 || 0}</span>
       </div>
-      <div class="flex justify-content-between pbe-2">
+      <div class="flex justify-content-between section">
         <span>Piece 2: </span><span>${result.piece2 || 0}</span>
       </div>
-      <div class="flex justify-content-between pbe-2">
+      <div class="flex justify-content-between section">
         <span>Chords: </span><span>${result.chords || 0}</span>
       </div>
     </div>

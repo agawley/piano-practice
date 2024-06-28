@@ -4,12 +4,13 @@ export default function ThisWeek({ html, state }) {
   return html`<style>
       :host {
         font-family: sans-serif;
+        font-size: 1.5em;
       }
       .tab {
         overflow: hidden;
-        border: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
         margin-bottom: 15px;
-        background-color: #f1f1f1;
+        background-color: #f5f5f5;
         display: flex;
         justify-content: center;
       }
@@ -18,21 +19,25 @@ export default function ThisWeek({ html, state }) {
       .tab a {
         background-color: inherit;
         float: left;
-        border: none;
         outline: none;
         cursor: pointer;
         padding: 14px 16px;
         transition: 0.3s;
+        color: #616161;
+        border-radius: 10px 10px 0px 0px;
       }
 
       /* Change background color of buttons on hover */
       .tab a:hover {
         background-color: #ddd;
+        color: black;
       }
 
       /* Create an active/current tablink class */
       .tab a.active {
-        background-color: #ccc;
+        background-color: white;
+
+        color: black;
       }
     </style>
     <div class="tab">

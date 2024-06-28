@@ -10,14 +10,13 @@ export default function PracticeCheckbox({ html, state }) {
         font-family: sans-serif;
       }
       :host label {
-        min-width: 300px;
+        width: 300px;
         display: flex;
         align-items: center;
-        padding: 5px;
         border: 1px solid #ccc;
       }
       :host label.checked {
-        background-color: green;
+        background-color: #c8e6c9;
       }
     </style>
     <label class="p0 block ${practice?.sections?.[name] ? "checked" : ""}">
