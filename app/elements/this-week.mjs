@@ -1,12 +1,14 @@
-import { getWeekStart } from "../lib/dates.mjs";
+import { getWeekStartKey } from "../lib/dates.mjs";
 
 export default function ThisWeek({ html, state }) {
   const { store } = state;
   const { practices } = store;
 
+  console.log(practices);
+
   const thisWeekPractices = practices.filter(
     (practice) =>
-      practice.date >= getWeekStart() &&
+      practice.key >= getWeekStartKey() &&
       Object.keys(practice.sections).length > 0
   );
 

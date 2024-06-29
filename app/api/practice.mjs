@@ -1,29 +1,22 @@
-import { URL } from "./index.mjs";
-import fetch from "node-fetch";
-import { getTodaysDate } from "../lib/dates.mjs";
+//import fetch from "node-fetch";
+import { getPractice, upsertPractice } from "../models/practices.mjs";
+
+//import { URL } from "./index.mjs";
+import { getTodaysKey } from "../lib/dates.mjs";
 
 export async function get() {
-  const today = getTodaysDate();
-  const response = await fetch(`${URL}/practice/${today}`);
-  const data = await response.json();
+  const today = getTodaysKey();
+  const data = await getPractice(today);
   return {
     json: {
-      practice: data.sections ? data : { date: today, sections: {} },
+      practice: data && data.sections ? data : { key: today, sections: {} },
     },
   };
 }
 
 export async function post(req) {
-  const { date, ...sections } = req.body;
-  const response = await fetch(`${URL}/practice`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ date, sections }),
-  });
-  const data = await response.json();
+  const { key, ...sections } = req.body;
+  const data = await upsertPractice({ key, sections });
   return {
     json: {
       practice: data,

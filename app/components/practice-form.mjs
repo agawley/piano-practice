@@ -1,5 +1,6 @@
 /* globals customElements */
 import CustomElement from "@enhance/custom-element";
+import { getTodaysKey } from "../lib/dates.mjs";
 
 export default class PracticeForm extends CustomElement {
   constructor() {
@@ -42,6 +43,8 @@ export default class PracticeForm extends CustomElement {
     const { store } = state;
     const { practice } = store;
 
+    console.log(practice);
+
     return html` <style>
         :host {
           --_accent: var(--accent, white);
@@ -79,7 +82,11 @@ export default class PracticeForm extends CustomElement {
         }
       </style>
       <form action="/practice" method="post">
-        <input type="hidden" name="date" value=${practice?.date} />
+        <input
+          type="hidden"
+          name="key"
+          value=${practice?.key || getTodaysKey()}
+        />
         <new-practice-checkbox label="Scales" name="scales">
         </new-practice-checkbox>
         <new-practice-checkbox label="Site Reading" name="siteReading">
