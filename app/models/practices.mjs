@@ -30,7 +30,7 @@ const getPractices = async function () {
     }
   }
 
-  return practices.sort((a, b) => a.created.localeCompare(b.created));
+  return practices.sort((a, b) => a.key.localeCompare(b.key));
 };
 
 const validatePractice = {
