@@ -1,6 +1,17 @@
-export default function ThisWeek({ html, state }) {
-  const { attrs } = state;
+export default function PracticeHeader({ html, state }) {
+  const { attrs, store } = state;
   const { page } = attrs;
+  const { user } = store;
+  const auth0Domain = process.env.AUTH0_DOMAIN;
+  const params = {
+    response_type: "code",
+    client_id: process.env.AUTH0_CLIENT_ID,
+    redirect_uri: process.env.AUTH0_REDIRECT_URI,
+    scope: "openid profile email",
+  };
+  const loginURL = `https://${auth0Domain}/authorize?${new URLSearchParams(
+    params
+  ).toString()}`;
   return html`<style>
       :host {
         font-family: sans-serif;
@@ -41,6 +52,9 @@ export default function ThisWeek({ html, state }) {
       }
     </style>
     <div class="tab">
+      <a class="tablinks" href="${user.sub ? "/logout" : loginURL}"
+        >${user.sub ? "Logout" : "Login"}</a
+      >
       <a class="tablinks ${page === "index" ? "active" : ""}" href="/">Stats</a>
       <a
         class="tablinks  ${page === "practice" ? "active" : ""}"

@@ -4,12 +4,13 @@ import { getPractice, upsertPractice } from "../models/practices.mjs";
 //import { URL } from "./index.mjs";
 import { getTodaysKey } from "../lib/dates.mjs";
 
-export async function get() {
+export async function get(req) {
   const today = getTodaysKey();
   const data = await getPractice(today);
   return {
     json: {
       practice: data && data.sections ? data : { key: today, sections: {} },
+      user: req.session,
     },
   };
 }

@@ -43,8 +43,6 @@ export default class PracticeForm extends CustomElement {
     const { store } = state;
     const { practice } = store;
 
-    console.log(practice);
-
     return html` <style>
         :host {
           --_accent: var(--accent, white);

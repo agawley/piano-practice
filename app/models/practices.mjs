@@ -8,7 +8,6 @@ const deletePractice = async function (key) {
 };
 
 const upsertPractice = async function (practice) {
-  console.log(practice);
   return data.set({ table: "practices", ...practice });
 };
 

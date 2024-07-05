@@ -4,8 +4,6 @@ export default function ThisWeek({ html, state }) {
   const { store } = state;
   const { practices } = store;
 
-  console.log(practices);
-
   const thisWeekPractices = practices.filter(
     (practice) =>
       practice.key >= getWeekStartKey() &&
