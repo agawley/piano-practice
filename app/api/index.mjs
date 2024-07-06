@@ -3,6 +3,7 @@ import { getPractices } from "../models/practices.mjs";
 
 export const get = async (req) => {
   const user = checkAuth(req);
+  console.log(user);
   if (!user) return { location: "/login" };
   const practices = await getPractices(user.id);
   return {

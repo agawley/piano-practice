@@ -17,6 +17,12 @@ export default function LoginButton({ html }) {
         width: 100%;
         font-family: sans-serif;
       }
+      :host div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 1.5em;
+      }
       :host a {
         color: rgb(255, 255, 255);
         background-color: rgb(25, 118, 210);
@@ -29,16 +35,20 @@ export default function LoginButton({ html }) {
         border-radius: 4px;
         font-weight: normal;
         width: 200px;
-      }</style
-    ><a
-      href=${loginURL}
-      class="
+      }
+    </style>
+    <div>
+      <a
+        href=${loginURL}
+        class="
+          text-center
               whitespace-no-wrap
               pb-3
               pi0
               font-semibold
               radius0"
-    >
-      Login
-    </a>`;
+      >
+        Login
+      </a>
+    </div>`;
 }
