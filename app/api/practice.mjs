@@ -7,7 +7,7 @@ export const get = async (req) => {
   const user = checkAuth(req);
   if (!user) return { location: "/login" };
   const today = getTodaysKey();
-  const data = await getPractice(today);
+  const data = await getPractice(user.id, today);
   return {
     json: {
       practice: data && data.sections ? data : { key: today, sections: {} },
@@ -20,7 +20,7 @@ export const post = async (req) => {
   const user = checkAuth(req);
   if (!user) return { location: "/login" };
   const { key, ...sections } = req.body;
-  const data = await upsertPractice({ key, sections });
+  const data = await upsertPractice(user.id, { key, sections });
   return {
     json: {
       practice: data,

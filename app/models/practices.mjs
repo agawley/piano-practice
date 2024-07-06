@@ -2,22 +2,24 @@ import { Practice } from "./schemas/practice.mjs";
 import data from "@begin/data";
 import { validator } from "@begin/validator";
 
-const deletePractice = async function (key) {
-  await data.destroy({ table: "practices", key });
+const TABLE_PREFIX = "practices_";
+
+const deletePractice = async function (user, key) {
+  await data.destroy({ table: TABLE_PREFIX + user, key });
   return { key };
 };
 
-const upsertPractice = async function (practice) {
-  return data.set({ table: "practices", ...practice });
+const upsertPractice = async function (user, practice) {
+  return data.set({ table: TABLE_PREFIX + user, ...practice });
 };
 
-const getPractice = async function (key) {
-  return data.get({ table: "practices", key });
+const getPractice = async function (user, key) {
+  return data.get({ table: TABLE_PREFIX + user, key });
 };
 
-const getPractices = async function () {
+const getPractices = async function (user) {
   const databasePageResults = await data.page({
-    table: "practices",
+    table: TABLE_PREFIX + user,
     limit: 25,
   });
 
