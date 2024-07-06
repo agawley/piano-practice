@@ -1,15 +1,14 @@
-//import fetch from "node-fetch";
+import { checkAuth } from "../lib/auth.mjs";
 import { getPractices } from "../models/practices.mjs";
 
-export const URL = "https://gojncrx4mb.execute-api.eu-west-2.amazonaws.com";
-
-export async function get(req) {
-  console.log(req.session);
-  const data = await getPractices();
+export const get = async (req) => {
+  const user = checkAuth(req);
+  if (!user) return { location: "/login" };
+  const practices = await getPractices();
   return {
     json: {
-      practices: data,
-      user: req.session,
+      practices,
+      user,
     },
   };
-}
+};

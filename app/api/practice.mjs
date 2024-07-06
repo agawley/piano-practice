@@ -1,27 +1,31 @@
-//import fetch from "node-fetch";
 import { getPractice, upsertPractice } from "../models/practices.mjs";
 
-//import { URL } from "./index.mjs";
+import { checkAuth } from "../lib/auth.mjs";
 import { getTodaysKey } from "../lib/dates.mjs";
 
-export async function get(req) {
+export const get = async (req) => {
+  const user = checkAuth(req);
+  if (!user) return { location: "/login" };
   const today = getTodaysKey();
   const data = await getPractice(today);
   return {
     json: {
       practice: data && data.sections ? data : { key: today, sections: {} },
-      user: req.session,
+      user,
     },
   };
-}
+};
 
-export async function post(req) {
+export const post = async (req) => {
+  const user = checkAuth(req);
+  if (!user) return { location: "/login" };
   const { key, ...sections } = req.body;
   const data = await upsertPractice({ key, sections });
   return {
     json: {
       practice: data,
+      user: user,
     },
-    location: "/practice",
+    location: "/",
   };
-}
+};
