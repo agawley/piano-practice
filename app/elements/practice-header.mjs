@@ -8,9 +8,9 @@ export default function PracticeHeader({ html, state }) {
       }
       .tab {
         overflow: hidden;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid light-dark(#ccc, #333);
         margin-bottom: 15px;
-        background-color: #f5f5f5;
+        background-color: light-dark(#eee, #222222);
         display: flex;
         justify-content: center;
       }
@@ -23,21 +23,21 @@ export default function PracticeHeader({ html, state }) {
         cursor: pointer;
         padding: 14px 16px;
         transition: 0.3s;
-        color: #616161;
+        color: light-dark(#616161, #ccc);
         border-radius: 10px 10px 0px 0px;
       }
 
       /* Change background color of buttons on hover */
       .tab a:hover {
-        background-color: #ddd;
-        color: black;
+        background-color: light-dark(#ddd, #444);
+        color: light-dark(black, white);
       }
 
       /* Create an active/current tablink class */
       .tab a.active {
-        background-color: white;
+        background-color: light-dark(white, black);
 
-        color: black;
+        color: light-dark(black, white);
       }
     </style>
     <div class="tab">
