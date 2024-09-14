@@ -47,16 +47,16 @@ export default function ThisWeek({ html, state }) {
         <span>Scales: </span><span>${result.scales || 0}</span>
       </div>
       <div class="flex justify-content-between section">
-        <span>Site reading: </span><span>${result.siteReading || 0}</span>
+        <span>Sight reading: </span><span>${result.siteReading || 0}</span>
       </div>
       <div class="flex justify-content-between section">
         <span>Hannon: </span><span>${result.hannon || 0}</span>
       </div>
       <div class="flex justify-content-between section">
-        <span>Piece 1: </span><span>${result.piece1 || 0}</span>
+        <span>Allegro: </span><span>${result.piece1 || 0}</span>
       </div>
       <div class="flex justify-content-between section">
-        <span>Piece 2: </span><span>${result.piece2 || 0}</span>
+        <span>Garden: </span><span>${result.piece2 || 0}</span>
       </div>
       <div class="flex justify-content-between section">
         <span>Chords: </span><span>${result.chords || 0}</span>

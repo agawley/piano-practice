@@ -87,13 +87,13 @@ export default class PracticeForm extends CustomElement {
         />
         <new-practice-checkbox label="Scales" name="scales">
         </new-practice-checkbox>
-        <new-practice-checkbox label="Site Reading" name="siteReading">
+        <new-practice-checkbox label="Sight Reading" name="siteReading">
         </new-practice-checkbox>
         <new-practice-checkbox label="Hannon" name="hannon">
         </new-practice-checkbox>
-        <new-practice-checkbox label="Piece 1" name="piece1">
+        <new-practice-checkbox label="Allegro" name="piece1">
         </new-practice-checkbox>
-        <new-practice-checkbox label="Piece 2" name="piece2">
+        <new-practice-checkbox label="Garden" name="piece2">
         </new-practice-checkbox>
         <new-practice-checkbox label="Chords" name="chords">
         </new-practice-checkbox>
