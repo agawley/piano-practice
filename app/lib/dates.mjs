@@ -8,6 +8,6 @@ export const getWeekStartKey = () => {
   const date = new Date();
   date.setHours(0, 0, 0, 0);
   // Goes to saturday
-  date.setDate(date.getDate() - ((date.getday() + 1) % 7));
+  date.setDate(date.getDate() - ((date.getDay() + 1) % 7));
   return date.getTime().toString(32);
 };
