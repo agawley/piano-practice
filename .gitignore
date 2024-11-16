@@ -1,5 +1,7 @@
 node_modules/
 .env
+.arc-env
+prefs.arc
 
 # Enhance temp files
 .enhance/
